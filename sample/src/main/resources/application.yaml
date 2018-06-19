@@ -1,0 +1,24 @@
+spring: 
+  application:
+    name: Sample
+  servlet: 
+    multipart:
+      max-file-size: -1
+      max-request-size: -1  
+  cloud: 
+    stream:
+      kafka:
+        binder:
+          brokers: 192.168.32.100:9092
+      bindings:
+        calls-in:
+          destination: demo.t
+          contentType: application/json
+        calls-out:
+          destination: demo.t
+          contentType: application/json
+        
+server:
+  port: 7092
+  servlet:
+    contextPath: /sample
